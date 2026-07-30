@@ -1,0 +1,129 @@
+# ===========================================
+# 11-20 DSA Questions in Python
+# ===========================================
+
+# 11. Find Second Largest Element
+print("11. Second Largest Element")
+arr = [10, 20, 4, 45, 99]
+
+largest = second = float('-inf')
+
+for num in arr:
+    if num > largest:
+        second = largest
+        largest = num
+    elif num > second and num != largest:
+        second = num
+
+print(second)
+
+
+# 12. Count Even and Odd Numbers
+print("\n12. Count Even and Odd")
+arr = [1, 2, 3, 4, 5, 6, 7]
+
+even = odd = 0
+
+for num in arr:
+    if num % 2 == 0:
+        even += 1
+    else:
+        odd += 1
+
+print("Even:", even)
+print("Odd:", odd)
+
+
+# 13. Sum of Digits
+print("\n13. Sum of Digits")
+num = 12345
+total = 0
+
+while num > 0:
+    total += num % 10
+    num //= 10
+
+print(total)
+
+
+# 14. Check Prime Number
+print("\n14. Prime Number")
+num = 29
+
+if num < 2:
+    print("Not Prime")
+else:
+    prime = True
+    for i in range(2, int(num ** 0.5) + 1):
+        if num % i == 0:
+            prime = False
+            break
+
+    if prime:
+        print("Prime")
+    else:
+        print("Not Prime")
+
+
+# 15. Reverse a String
+print("\n15. Reverse String")
+text = "Python"
+print(text[::-1])
+
+
+# 16. Merge Two Lists
+print("\n16. Merge Two Lists")
+list1 = [1, 2, 3]
+list2 = [4, 5, 6]
+
+merged = list1 + list2
+print(merged)
+
+
+# 17. Find Minimum Element
+print("\n17. Minimum Element")
+arr = [23, 11, 56, 4, 89]
+
+minimum = arr[0]
+
+for num in arr:
+    if num < minimum:
+        minimum = num
+
+print(minimum)
+
+
+# 18. Check Anagram
+print("\n18. Check Anagram")
+
+str1 = "listen"
+str2 = "silent"
+
+if sorted(str1) == sorted(str2):
+    print("Anagram")
+else:
+    print("Not Anagram")
+
+
+# 19. Count Vowels
+print("\n19. Count Vowels")
+
+text = "Programming"
+
+count = 0
+
+for ch in text.lower():
+    if ch in "aeiou":
+        count += 1
+
+print(count)
+
+
+# 20. Rotate List Left by One
+print("\n20. Rotate List Left")
+
+arr = [1, 2, 3, 4, 5]
+
+arr = arr[1:] + [arr[0]]
+
+print(arr)
