@@ -1,0 +1,86 @@
+# list traversal
+ls = [1, 2, 3, 4, 5, 3, 2, 6, 7, 8, 4]
+for i in ls:
+    print(i)
+# Finding maximum
+ls = [1, 2, 3, 4, 5, 3, 2, 6, 7, 8, 4]
+max=ls[0]
+for i in ls:
+    if i>max:
+        max=i
+print("Maximum number found at index",max,ls.index(max))
+# Finding minimum
+ls = [1, 2, 3, 4, 5, 3, 2, 6, 7, 8, 4]
+min=ls[0]
+for i in ls:
+    if i<min:
+        min=i
+print("Maximum number found at index",min,ls.index(min))
+# Sum
+ls = [1, 2, 3, 4, 5, 3, 2, 6, 7, 8, 4]
+sum=0
+for i in ls:
+    sum+=i
+print(f"Sum of total elements present in the list is {sum}")
+# Reverse list
+ls = [1, 2, 3, 4, 5, 3, 2, 6, 7, 8, 4]
+print(ls[::-1])
+
+reverse=[]
+for i in range(len(ls)):
+    reverse=[ls[i]]+reverse
+print(reverse)
+
+rvs=[]
+for i in range(len(ls)-1,-1,-1):
+    rvs.append(ls[i])
+print(rvs)
+# Remove duplicates
+ls = [1, 2, 3, 4, 5, 3, 2, 6, 7, 8, 4]
+s=set()
+for i in ls:
+    if i in s:
+        print(f"Duplicate: {i}")
+    else:
+        s.add(i)
+
+# Rotate list
+ls = [1, 2, 3, 4, 5, 3, 2, 6, 7, 8, 4]
+ls.reverse()
+print(ls)
+
+for i in range(len(ls)-1,-1,-1):
+    print(ls[i],end=" ")
+
+# Find missing number
+ls = [1, 3,4,5,7,6,8]
+n=8
+expected_sum=n*(n+1)//2
+actual_sum=0
+for i in ls:
+    actual_sum+=i
+missing_num=expected_sum-actual_sum
+print(f"Missing number is {missing_num}")
+# Find duplicate number
+ls = [1, 2, 3, 4, 5, 3, 2, 6, 7, 8, 4]
+find=[0]
+s=[]
+dup=[]
+for i in ls:
+    if i not in s:
+        s.append(i)
+    else:
+        dup.append(i)
+print(f"Duplicate number are {dup}\nAfter removing duplicates the list is {s}")
+# Frequency counting
+ls = [1, 2, 3, 4, 5, 3, 2, 6, 7, 8, 4]
+
+frequency = {}
+
+for i in ls:
+    if i in frequency:
+        frequency[i] = frequency[i] + 1
+    else:
+        frequency[i] = 1
+
+print(frequency)
