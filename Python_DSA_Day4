@@ -1,0 +1,159 @@
+#1. Reverse a String
+s="Dipak"
+ls=list(s)
+print(s)
+start=0
+end=len(s)-1
+while start<end:
+    ls[start],ls[end]=ls[end],ls[start]
+    start+=1
+    end-=1
+s = "".join(ls)
+print(s)
+
+# 2. Palindrome:
+# A palindrome reads the same forward and backward.
+
+s = "madaam"
+
+start = 0
+end = len(s) - 1
+
+is_palindrome = True
+
+while start<end:
+    if s[start]!=s[end]:
+        is_palindrome=False
+        break
+
+    start+=1
+    end-=1
+
+if is_palindrome:
+    print(f"The given string {s} is Palindrome")
+else:
+    print(f"The given string {s} is not Palindrome")
+    
+#3. Anagram :
+# Two strings are anagrams if they contain the same characters with the same frequency, but possibly in a different order.    
+s1 = "listen"
+s2 = "silent"
+
+if len(s1) != len(s2):
+    print("Not Anagram")
+else:
+    frequency = {}
+
+    for char in s1:
+        frequency[char] = frequency.get(char, 0) + 1
+
+    for char in s2:
+        frequency[char] = frequency.get(char, 0) - 1
+
+    is_anagram = True
+
+    for count in frequency.values():
+        if count != 0:
+            is_anagram = False
+            break
+
+    if is_anagram:
+        print("Anagram")
+    else:
+        print("Not Anagram")    
+    
+    
+#4. Character Frequency
+s = "banana"
+
+frequency = {}
+
+for char in s:
+    if char in frequency:
+        frequency[char] += 1
+    else:
+        frequency[char] = 1
+
+print(frequency)
+
+#5. First Non-Repeating Character
+s = "swiss"
+
+frequency = {}
+
+# Step 1: Count frequency
+for char in s:
+    frequency[char] = frequency.get(char, 0) + 1
+
+# Step 2: Find first non-repeating character
+for char in s:
+    if frequency[char] == 1:
+        print("First non-repeating:", char)
+        break
+else:
+    print("No non-repeating character")
+    
+#6. Remove Duplicates
+s = "programming"
+
+seen = set()
+result = ""
+
+for char in s:
+    if char not in seen:
+        seen.add(char)
+        result += char
+
+print(result)
+
+#7. Longest Word
+sentence = "I love programming"
+
+words = sentence.split()
+
+longest = words[0]
+
+for word in words:
+    if len(word) > len(longest):
+        longest = word
+
+print("Longest word:", longest)
+
+#8. Longest Substring
+s = "abcabcbb"
+
+seen = set()
+
+left = 0
+max_length = 0
+
+for right in range(len(s)):
+
+    while s[right] in seen:
+        seen.remove(s[left])
+        left += 1
+
+    seen.add(s[right])
+
+    current_length = right - left + 1
+
+    if current_length > max_length:
+        max_length = current_length
+
+print("Longest substring length:", max_length)
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
