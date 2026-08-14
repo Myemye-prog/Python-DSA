@@ -1,0 +1,189 @@
+# ============================================================
+# ARRAY / LIST DSA PROGRAMS - 10 QUESTIONS
+# ============================================================
+
+
+# 9. Find the Largest Element
+# ------------------------------------------------------------
+arr = [10, 25, 7, 45, 18]
+
+largest = arr[0]
+
+for num in arr:
+    if num > largest:
+        largest = num
+
+print("9. Largest element:", largest)
+
+
+# 10. Find the Second Largest Element
+# ------------------------------------------------------------
+arr = [10, 25, 7, 45, 18]
+
+largest = float("-inf")
+second_largest = float("-inf")
+
+for num in arr:
+    if num > largest:
+        second_largest = largest
+        largest = num
+
+    elif num > second_largest and num != largest:
+        second_largest = num
+
+print("10. Second largest element:", second_largest)
+
+
+# 11. Find the Smallest Element
+# ------------------------------------------------------------
+arr = [10, 25, 7, 45, 18]
+
+smallest = arr[0]
+
+for num in arr:
+    if num < smallest:
+        smallest = num
+
+print("11. Smallest element:", smallest)
+
+
+# 12. Reverse an Array Using Two Pointers
+# ------------------------------------------------------------
+arr = [1, 2, 3, 4, 5]
+
+start = 0
+end = len(arr) - 1
+
+while start < end:
+    arr[start], arr[end] = arr[end], arr[start]
+
+    start += 1
+    end -= 1
+
+print("12. Reversed array:", arr)
+
+
+# 13. Move All Zeros to the End
+# ------------------------------------------------------------
+arr = [0, 1, 0, 3, 12]
+
+position = 0
+
+for num in arr:
+    if num != 0:
+        arr[position] = num
+        position += 1
+
+while position < len(arr):
+    arr[position] = 0
+    position += 1
+
+print("13. Zeros moved to end:", arr)
+
+
+# 14. Find the Missing Number
+# Numbers should be from 1 to n
+# ------------------------------------------------------------
+arr = [1, 2, 4, 5]
+
+n = 5
+
+expected_sum = n * (n + 1) // 2
+
+actual_sum = 0
+
+for num in arr:
+    actual_sum += num
+
+missing = expected_sum - actual_sum
+
+print("14. Missing number:", missing)
+
+
+# 15. Find Duplicate Number
+# ------------------------------------------------------------
+arr = [1, 3, 4, 2, 2]
+
+seen = set()
+duplicate = None
+
+for num in arr:
+    if num in seen:
+        duplicate = num
+        break
+
+    seen.add(num)
+
+print("15. Duplicate number:", duplicate)
+
+
+# 16. Two Sum
+# Find two numbers whose sum equals target
+# ------------------------------------------------------------
+arr = [2, 7, 11, 15]
+
+target = 9
+
+seen = set()
+found = False
+
+for num in arr:
+    required = target - num
+
+    if required in seen:
+        print("16. Two Sum:", required, "+", num, "=", target)
+        found = True
+        break
+
+    seen.add(num)
+
+if not found:
+    print("16. No pair found")
+
+
+# 17. Merge Two Sorted Arrays
+# ------------------------------------------------------------
+arr1 = [1, 3, 5]
+arr2 = [2, 4, 6]
+
+i = 0
+j = 0
+
+merged = []
+
+while i < len(arr1) and j < len(arr2):
+
+    if arr1[i] < arr2[j]:
+        merged.append(arr1[i])
+        i += 1
+
+    else:
+        merged.append(arr2[j])
+        j += 1
+
+
+while i < len(arr1):
+    merged.append(arr1[i])
+    i += 1
+
+
+while j < len(arr2):
+    merged.append(arr2[j])
+    j += 1
+
+
+print("17. Merged array:", merged)
+
+
+# 18. Find Common Elements in Two Arrays
+# ------------------------------------------------------------
+arr1 = [1, 2, 3, 4]
+arr2 = [3, 4, 5, 6]
+
+common = []
+
+for num in arr1:
+    if num in arr2 and num not in common:
+        common.append(num)
+
+print("18. Common elements:", common)
